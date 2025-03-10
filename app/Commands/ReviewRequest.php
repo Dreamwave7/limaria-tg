@@ -21,18 +21,21 @@ class ReviewRequest extends Command
         {
             $this->replyWithMessage(["text" => "😢 На даний момент немає нових заявок."]);
         }
-
-        foreach ($requests as $request)
+        else
         {
-            $this->replyWithMessage([
-                "text" =>
-                    "🟢 Заявка 🟢
+            foreach ($requests as $request)
+            {
+                $this->replyWithMessage([
+                    "text" =>
+"🟢 Заявка 🟢
 🏥 Клініка: {$request->employee->clinic->name}
 📍 Адреса: {$request->employee->clinic->address}
 📅 Дата: {$request->collect_date}
 👨‍⚕️ Лікар: {$request->employee->name}
 🗒Заявка створена: {$request->created_at}"
-            ]);
+                ]);
+
+        }
 
         }
 

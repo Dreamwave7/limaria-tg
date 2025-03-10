@@ -21,7 +21,7 @@ class ConfirmRequest extends Command
             $request->save();
         }
 
-        $this->replyWithMessage(["text" => "command working"]);
+        $this->replyWithMessage(["text" => "✅"]);
 
     }
 

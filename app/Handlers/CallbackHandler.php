@@ -20,12 +20,11 @@ class CallbackHandler
         ];
 
         $result = $commands["collect"]($webhook);
-//
 
-//        Telegram::deleteMessage([
-//            "chat_id" =>$chatId,
-//            "message_id" => $messageId
-//        ]);
+        Telegram::deleteMessage([
+            "chat_id" =>$chatId,
+            "message_id" => $messageId
+        ]);
 
     }
 

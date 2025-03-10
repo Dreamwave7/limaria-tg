@@ -34,11 +34,6 @@ class CollectService
             $this->registerRequest($webhook,$person->id,$telegram_id);
         }
 
-//        Telegram::sendMessage([
-//            "chat_id" => $telegram_id,
-//            "text" => "Hello welcome"
-//        ]);
-
     }
 
     public function registerRequest($webhook,$employeeId,$telegram_id)
