@@ -3,6 +3,7 @@
 use App\Commands\BlankCommand;
 use App\Commands\CollectSampleCommand;
 use App\Commands\InfoCommand;
+use App\Commands\ReviewRequest;
 use App\Commands\StartCommand;
 use Telegram\Bot\Commands\HelpCommand;
 
@@ -138,7 +139,9 @@ return [
         StartCommand::class,
         InfoCommand::class,
         CollectSampleCommand::class,
-        BlankCommand::class
+        BlankCommand::class,
+        ReviewRequest::class,
+        \App\Commands\ConfirmRequest::class
     ],
 
     /*

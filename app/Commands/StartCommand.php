@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Keyboard\Keyboard;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class StartCommand extends Command
 {
@@ -12,8 +13,23 @@ class StartCommand extends Command
 
     public function handle()
     {
-        $keyboard = Keyboard::make()->inline()->row([
-            Keyboard::inlineButton(["text" => "Кнопка 1", "callback_data" => "button1"]),]);
+        $webhook = Telegram::getWebhookUpdate();
+        $userId = $webhook->getMessage()->getFrom()->getId();
+
+
+        $adminKeyboard = Keyboard::make()
+            ->row([
+                Keyboard::button(["text" => "Переглянути інформацію"])])
+            ->row([
+                Keyboard::button(["text" => "Заявка на забір матеріалу"])])
+            ->row([
+                Keyboard::button(["text" => "Переглянути заявки на дослідження"])])
+            ->row([
+                Keyboard::button(["text" => "Переглянути заявки на забір матеріалу"])])
+            ->row([
+                Keyboard::button(["text" => "Підтвердити отримання всіх зразків"])
+            ])
+            ->setResizeKeyboard(true);
 
         $ButtonsMenuKeyboard = Keyboard::make()
             ->row([
@@ -25,11 +41,26 @@ class StartCommand extends Command
             ->setResizeKeyboard(true);
 
 
-        $this->replyWithMessage([
-            "text" =>"Вітаю в боті лабораторії Лімарія.
+
+        if ($userId == "439709581" )
+        {
+            $this->replyWithMessage([
+                "text" =>"Вітаю в боті лабораторії Лімарія.
+Ви авторизувались, як адміністратор.
 Для ознайомлення скористайтесь меню⬇️",
-            "reply_markup" => $ButtonsMenuKeyboard
-        ]);
+                "reply_markup" => $adminKeyboard
+            ]);
+        }
+        else
+        {
+            $this->replyWithMessage([
+                "text" =>"Вітаю в боті лабораторії Лімарія.
+Для ознайомлення скористайтесь меню⬇️",
+                "reply_markup" => $ButtonsMenuKeyboard
+            ]);
+        }
+
+
 
 //        $this->triggerCommand("help");
 

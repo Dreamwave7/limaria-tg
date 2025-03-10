@@ -17,6 +17,8 @@ class BlankCommand extends Command
     public function handle()
     {
         date_default_timezone_set("Europe/Kiev");
+//        $webhook = Telegram::getWebhookUpdate();
+
 
 //        Employee::create([
 //            "name" => "Дмитро Лисовий",
@@ -40,8 +42,16 @@ class BlankCommand extends Command
 
 
         $this->replyWithMessage([
-            "text"=>"sadasd"
+            "text"=>"asasd"
         ]);
+//        $webhook = Telegram::getWebhookUpdate();
+
+//        if ($webhook->getMessage()) {
+//            $userId = $webhook->getMessage()->getFrom()->getId();
+//            $this->replyWithMessage(['text' => "Ваш ID: $userId"]);
+//        } else {
+//            $this->replyWithMessage(['text' => 'Не удалось получить ID пользователя.']);
+//        }
     }
 
 }

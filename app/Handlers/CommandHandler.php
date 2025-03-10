@@ -16,7 +16,9 @@ class CommandHandler
                 "/start" => "start",
                 "Переглянути інформацію" => "info",
                 "Заявка на забір матеріалу" => "collect",
-                "Переглянути заявки на дослідження" => "blank"
+                "Переглянути заявки на дослідження" => "blank",
+                "Переглянути заявки на забір матеріалу" => "all_requests",
+                "Підтвердити отримання всіх зразків" => "confirm_request"
             ];
 
         if (array_key_exists($UserCommand,$commands))

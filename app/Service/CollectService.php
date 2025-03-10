@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Models\Employee;
 use App\Models\Request;
+use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class CollectService
@@ -15,9 +16,17 @@ class CollectService
 
         if (!$person)
         {
+            $contactButton = Keyboard::make()->inline()->row([
+                Keyboard::inlineButton(["text" => "Зв'язатись з нами","url" => "t.me/limaria_lab"])
+            ]);
             Telegram::sendMessage([
                 "chat_id" => $telegram_id,
-                "text" => "Hello you are not our client"
+                "text" =>
+"
+Доброго дня!
+На жаль, Вас немає у базі наших замовників. Зверніться, будь ласка, до нашого менеджера за телефоном +380751020039, для реєстрації. Будемо раді співпраці!
+",
+                "reply_markup" => $contactButton
             ]);
         }
         else //створення запиту в бд
