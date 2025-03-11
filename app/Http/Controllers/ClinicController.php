@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clinic;
 use Illuminate\Http\Request;
 
 class ClinicController extends Controller
@@ -11,7 +12,8 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        //
+        $clinics = Clinic::all();
+       return view("clinic.index",compact("clinics"));
     }
 
     /**

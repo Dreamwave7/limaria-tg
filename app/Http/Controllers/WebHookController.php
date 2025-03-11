@@ -30,7 +30,7 @@ class WebHookController extends Controller
     public function setWebhook()
     {
         $telegram = new Api("7750934355:AAGE81JqMS-BVFZ7d9MZfld6DijpGYqP6Ug");
-        $url = "https://8c37-146-0-81-2.ngrok-free.app/telegram-webhook";
+        $url = "https://94fd-94-45-153-1.ngrok-free.app/telegram-webhook";
         $response = $telegram->setWebhook(["url" => $url,"pending_update_count" => 0,"allowed_updates" =>["message", "callback_query"]]);
         return $response;
 
