@@ -13,6 +13,7 @@ class ReviewRequest extends Command
 
     public function handle()
     {
+        date_default_timezone_set("Europe/Kiev");
         $today =date("d-m-Y");
 
         $requests = Request::where("collect_date",$today)->where("status","ready")->get();

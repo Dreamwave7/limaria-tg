@@ -13,8 +13,10 @@ class CollectService
     {
         $telegram_id = $webhook["callback_query"]["message"]["chat"]["id"];
         $person = Employee::where("telegram_id", $telegram_id)->first();
+        $tempTrue = true;
 
-        if (!$person)
+//        if (!$person)
+        if (!$tempTrue)
         {
             $contactButton = Keyboard::make()->inline()->row([
                 Keyboard::inlineButton(["text" => "Зв'язатись з нами","url" => "t.me/limaria_lab"])
