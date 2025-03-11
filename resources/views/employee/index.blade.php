@@ -8,7 +8,7 @@
             <h3>Список лікарів</h3>
         </div>
         <button type="button" class="btn btn-success btn-lg">
-            <a href="/create-employee" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">  Створити працівника  </a>
+            <a href="{{route('employee.create')}}" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">  Створити працівника  </a>
         </button>
 
             <div class="filter-list bgnc-10 ">
@@ -16,25 +16,18 @@
                     <form action="#" class="d-between gap-30 mb-30">
                         <div class="w-100">
                             <label class="para-1b d-block tnc-1 mb-10">Name</label>
-                            <input class="form-control px-xxl-30 py-xxl-20 p-lg-20 p-3" type="text"
-                                   placeholder="Your name">
                         </div>
                         <div class="w-100">
                             <label class="para-1b d-block tnc-1 mb-10">Email</label>
-                            <input class="form-control px-xxl-30 py-xxl-20 p-lg-20 p-3" type="email"
-                                   placeholder="Your email">
                         </div>
                         <div class="w-100">
                             <label class="para-1b d-block tnc-1 mb-10">Phone</label>
-                            <input class="form-control px-xxl-30 py-xxl-20 p-lg-20 p-3" type="number"
-                                   placeholder="Your number">
                         </div>
                     </form>
                     <button class="btn-2">Submit</button>
                 </div>
             </div>
-            <!-- pop up filter box end -->
-            <!-- table start -->
+
             <table class="list-table" id="itemTable">
                 <thead>
                 <tr>
@@ -80,7 +73,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- pagination end  -->
         </div>
 
     </div>

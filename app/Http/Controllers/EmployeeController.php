@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clinic;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $clinics = Clinic::all();
+        return view("employee.create",compact("clinics"));
     }
 
     /**
@@ -29,7 +31,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "name" => "string",
+            "clinic_id" => "integer",
+            "telegram_name" => "string",
+            "telegram_id" => "string"
+        ]);
+
+        Employee::create($validatedData);
+        return redirect()->route("employee.index");
     }
 
     /**

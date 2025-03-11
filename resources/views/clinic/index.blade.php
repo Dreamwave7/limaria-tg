@@ -8,7 +8,7 @@
                 <h3>Список клінік</h3>
             </div>
             <button type="button" class="btn btn-success btn-lg">
-                <a href="/create-clinic" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">  Створити клініку  </a>
+                <a href="{{route('clinic.create')}}" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">  Створити клініку  </a>
             </button>
 
             <!-- pop up filter box end -->
@@ -28,7 +28,13 @@
                         <td class="text-center">{{$clinic->id}}</td>
                         <td>{{$clinic->name}}</td>
                         <td>{{$clinic->address}}</td>
-                        <td class="tsc-1">Видалити</td>
+                        <td>
+                            <form action="{{route('clinic.destroy',["clinic" => $clinic->id])}}" method="post">
+                                @csrf
+                                @method("delete")
+                                <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

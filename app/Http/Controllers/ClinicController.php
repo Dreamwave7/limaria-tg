@@ -21,7 +21,7 @@ class ClinicController extends Controller
      */
     public function create()
     {
-        //
+        return view("clinic.create");
     }
 
     /**
@@ -29,7 +29,14 @@ class ClinicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "name" => "string",
+            "address" => "string|min:10"
+        ]);
+
+        Clinic::create($validatedData);
+
+        return redirect()->route("clinic.index");
     }
 
     /**
@@ -61,6 +68,9 @@ class ClinicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $clinic = Clinic::find($id)->first();
+        $clinic->delete();
+
+        return redirect()->route("clinic.index");
     }
 }

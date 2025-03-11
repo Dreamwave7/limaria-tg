@@ -44,19 +44,19 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="clinic">
+                        <a href="{{route('clinic.index')}}">
                             <i class="fa-solid fa-house-chimney-medical"></i>
                             <span class="show-item">Клініки</span>
                         </a>
                     </li>
                     <li>
-                        <a href="employee">
+                        <a href="{{route('employee.index')}}">
                             <i class="fa-solid fa-user-doctor"></i>
                             <span class="show-item">Лікарі</span>
                         </a>
                     </li>
                     <li>
-                        <a href="request">
+                        <a href="{{route('request.index')}}">
                             <i class="fa-solid fa-truck"></i>
                             <span class="show-item"> Заявки на забір</span>
                         </a>
