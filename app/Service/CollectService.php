@@ -57,6 +57,22 @@ class CollectService
 📅 Дата: {$newRequest->collect_date}
 👨‍⚕️ Лікар: {$newRequest->employee->name}"
         ]);
+
+        Telegram::sendMessage
+        ([
+            "chat_id" => "7712071126",
+            "text" =>
+"🟢 Надійшла нова заявка від клієнта 🟢
+🏥 Клініка: {$newRequest->employee->clinic->name}
+📍 Адреса: {$newRequest->employee->clinic->address}
+📅 Дата: {$newRequest->collect_date}
+👨‍⚕️ Лікар: {$newRequest->employee->name}"
+        ]);
+
+
+
+
+
     }
 
 }
