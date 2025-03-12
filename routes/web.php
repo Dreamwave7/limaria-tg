@@ -11,8 +11,15 @@ Route::post('/telegram-webhook', [WebHookController::class,"webhook"])->name("te
 Route::get("/set-webhook",[WebHookController::class,"setWebhook"])->name("set.webhook");
 
 
-Route::resource("clinic",ClinicController::class);
+Route::get("/",[ClinicController::class,"index"])->middleware("auth");
 
-Route::resource("employee", EmployeeController::class);
+Route::resource("clinic",ClinicController::class)->middleware("auth");
 
-Route::resource("request", RequestController::class);
+Route::resource("employee", EmployeeController::class)->middleware("auth");
+
+Route::resource("request", RequestController::class)->middleware("auth");
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+\Illuminate\Support\Facades\Auth::routes();

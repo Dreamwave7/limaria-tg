@@ -65,10 +65,15 @@
             </div>
         </div>
 
-        <button class="log-out">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span class="show-item"> Вийти </span>
-        </button>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+            @csrf
+            <button class="log-out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="show-item"> Вийти </span>
+            </button>
+        </form>
+
     </div>
 </div>
 
