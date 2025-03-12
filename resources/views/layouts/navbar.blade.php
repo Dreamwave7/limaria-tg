@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
-    <title>Admin Home | HealthEase </title>
+    <title>Admin Panel | Limaria </title>
     <!-- bootstrap stylesheet -->
     <link rel="stylesheet" href={{asset("css/customizeBootstrap.css")}}>
     <!-- css stylesheet -->

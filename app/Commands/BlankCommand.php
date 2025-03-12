@@ -21,6 +21,8 @@ class BlankCommand extends Command
         $rulesSamples = public_path("Відбір зразків.docx");
         $agreementSamples = public_path("договір ПФ.7.1.06.docx");
 
+        $this->replyWithChatAction(["action" => "upload_document" ]);
+
         $this->replyWithDocument([
             "document" => InputFile::create($rulesSamples),
             "caption" => "Умови відбору зразків"
@@ -30,6 +32,7 @@ class BlankCommand extends Command
             "document" => InputFile::create($agreementSamples),
             "caption" => "Шаблон договору"
         ]);
+        $this->replyWithChatAction(["action" => "upload_document" ]);
 
         $this->replyWithDocument([
             "document" => InputFile::create($priceList),

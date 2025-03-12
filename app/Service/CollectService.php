@@ -47,6 +47,7 @@ class CollectService
             "comment" => "None",
             "status" => "ready"
         ]);
+
         Telegram::sendMessage
         ([
             "chat_id" => $telegram_id,
