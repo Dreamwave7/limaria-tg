@@ -42,7 +42,7 @@ class StartCommand extends Command
 
 
 
-        if ($userId == "439709581" )
+        if (in_array($userId,["439709581","7712071126"]))
         {
             $this->replyWithMessage([
                 "text" =>"Вітаю в боті лабораторії Лімарія.

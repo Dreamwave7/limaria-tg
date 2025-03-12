@@ -47,7 +47,13 @@
                     <td>{{$employee->telegram_name}}</td>
                     <td>{{$employee->telegram_id}}</td>
                     <td>{{$employee->clinic->name}}</td>
-                    <td class="tsc-1">Видалити</td>
+                    <td>
+                        <form action="{{route('employee.destroy',["employee" => $employee->id])}}" method="post">
+                            @csrf
+                            @method("delete")
+                            <button type="submit" class="btn btn-outline-danger btn-lg">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

@@ -15,8 +15,7 @@ class CollectService
         $person = Employee::where("telegram_id", $telegram_id)->first();
         $tempTrue = true;
 
-//        if (!$person)
-        if (!$tempTrue)
+        if (!$person)
         {
             $contactButton = Keyboard::make()->inline()->row([
                 Keyboard::inlineButton(["text" => "Зв'язатись з нами","url" => "t.me/limaria_lab"])
